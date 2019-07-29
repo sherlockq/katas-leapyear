@@ -28,27 +28,20 @@ public class LeapYearShould {
         assertTrue(isLeapYear);
     }
 
-    @Test
-    void returnFalseIfYearIs100() {
+    @ParameterizedTest
+    @ValueSource(ints = {100, 200, 300})
+    void returnFalseIfDivisibleBy100(int year) {
         LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(100);
+        boolean isLeapYear = leapYear.isLeapYear(year);
 
         assertFalse(isLeapYear);
     }
 
     @Test
-    void returnFalseIfYearIs200() {
+    void returnTrueIfYearIs400() {
         LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(200);
+        boolean isLeapYear = leapYear.isLeapYear(400);
 
-        assertFalse(isLeapYear);
-    }
-
-    @Test
-    void returnFalseIfYearIs300() {
-        LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(300);
-
-        assertFalse(isLeapYear);
+        assertTrue(isLeapYear);
     }
 }
