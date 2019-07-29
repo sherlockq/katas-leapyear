@@ -3,7 +3,7 @@ package com.codurance.apprentice.kata.leapyear;
 public class LeapYear {
     public boolean isLeapYear(int year) {
 
-        if(year == 100){
+        if(year % 100 == 0){
             return false;
         }
 

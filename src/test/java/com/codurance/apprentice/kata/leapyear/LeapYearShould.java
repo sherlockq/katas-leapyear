@@ -35,4 +35,20 @@ public class LeapYearShould {
 
         assertFalse(isLeapYear);
     }
+
+    @Test
+    void returnFalseIfYearIs200() {
+        LeapYear leapYear = new LeapYear();
+        boolean isLeapYear = leapYear.isLeapYear(200);
+
+        assertFalse(isLeapYear);
+    }
+
+    @Test
+    void returnFalseIfYearIs300() {
+        LeapYear leapYear = new LeapYear();
+        boolean isLeapYear = leapYear.isLeapYear(300);
+
+        assertFalse(isLeapYear);
+    }
 }
