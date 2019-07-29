@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LeapYearShould {
 
     @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3, 5, 2019})
+    @ValueSource(ints = {1, 2, 3, 5, 2019, 1997})
     void returnFalseIfNotDivisibleBy4(int year) {
         LeapYear leapYear = new LeapYear();
         boolean isLeapYear = leapYear.isLeapYear(year);
@@ -20,7 +20,7 @@ public class LeapYearShould {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {4, 8, 12})
+    @ValueSource(ints = {4, 8, 12, 1996})
     void returnTrueIfDivisibleBy4(int year) {
         LeapYear leapYear = new LeapYear();
         boolean isLeapYear = leapYear.isLeapYear(year);
@@ -29,7 +29,7 @@ public class LeapYearShould {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {100, 200, 300})
+    @ValueSource(ints = {100, 200, 300, 1800})
     void returnFalseIfDivisibleBy100(int year) {
         LeapYear leapYear = new LeapYear();
         boolean isLeapYear = leapYear.isLeapYear(year);
@@ -37,10 +37,11 @@ public class LeapYearShould {
         assertFalse(isLeapYear);
     }
 
-    @Test
-    void returnTrueIfYearIs400() {
+    @ParameterizedTest
+    @ValueSource(ints = {400, 800, 1200, 1600})
+    void returnTrueIfDivisibleBy400(int year) {
         LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(400);
+        boolean isLeapYear = leapYear.isLeapYear(year);
 
         assertTrue(isLeapYear);
     }
