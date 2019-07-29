@@ -19,10 +19,11 @@ public class LeapYearShould {
         assertFalse(isLeapYear);
     }
 
-    @Test
-    void returnTrueWhenYearIs4() {
+    @ParameterizedTest
+    @ValueSource(ints = {4, 8, 12})
+    void returnTrueIfDivisibleBy4(int year) {
         LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(4);
+        boolean isLeapYear = leapYear.isLeapYear(year);
 
         assertTrue(isLeapYear);
     }
