@@ -1,15 +1,20 @@
 package com.codurance.apprentice.kata.leapyear;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LeapYearShould {
-    @Test
-    void returnFalseWhenYearIs1() {
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 5, 2019})
+    void returnFalseIfNotDivisibleBy4(int year) {
         LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(1);
+        boolean isLeapYear = leapYear.isLeapYear(year);
 
         assertFalse(isLeapYear);
     }
@@ -21,4 +26,5 @@ public class LeapYearShould {
 
         assertTrue(isLeapYear);
     }
+
 }
